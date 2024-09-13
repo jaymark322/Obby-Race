@@ -1,0 +1,52 @@
+local OrionLib = loadstring(game:HttpGet(('https://raw.githubusercontent.com/shlexware/Orion/main/source')))()
+
+local Window = OrionLib:MakeWindow({
+    Name = "Obby Race Script", 
+    HidePremium = false, 
+    SaveConfig = true, 
+    ConfigFolder = "OrionTest"
+})
+
+local Tab = Window:MakeTab({
+    Name = "Main",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+local autoWinEnabled = false
+
+Tab:AddToggle({
+    Name = "Auto Win",
+    Default = false,
+    Callback = function(isEnabled)
+        autoWinEnabled = isEnabled
+        if autoWinEnabled then
+            spawn(function()
+                while autoWinEnabled do
+                    game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(27.6376839, 36.8539963, 40.4538574, -0.899674952, 1.02819058e-07, 0.436560422, 9.74239995e-08, 1, -3.4746904e-08, -0.436560422, 1.12705436e-08, -0.899674952)
+                    wait(0.5)
+                end
+            end)
+        end
+    end    
+})
+
+Tab:AddButton({
+    Name = "Win",
+    Callback = function()
+        game.Players.LocalPlayer.Character.HumanoidRootPart.CFrame = CFrame.new(27.6376839, 36.8539963, 40.4538574, -0.899674952, 1.02819058e-07, 0.436560422, 9.74239995e-08, 1, -3.4746904e-08, -0.436560422, 1.12705436e-08, -0.899674952)
+    end
+})
+
+local Tab = Window:MakeTab({
+    Name = "admin",
+    Icon = "rbxassetid://4483345998",
+    PremiumOnly = false
+})
+
+Tab:AddButton({
+    Name = "Infinite Yield",
+    Callback = function()
+        loadstring(game:HttpGet('https://raw.githubusercontent.com/EdgeIY/infiniteyield/master/source'))()
+    end
+})
